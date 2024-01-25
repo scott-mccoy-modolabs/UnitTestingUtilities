@@ -8,7 +8,6 @@
  */
 
 import XCTest
-@testable import Kurogo_iOS
 
 extension XCTestExpectation {
     var expected: Bool {
