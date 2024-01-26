@@ -10,18 +10,21 @@
 import XCTest
 
 // Loads & Decodes JSON from Unit Test Bundle.
-enum JsonLoaderError: Error {
+public enum JsonLoaderError: Error {
     case fileNotFound
     case couldNotGetData(Error)
     case codableHelperError(LocalCodableHelperError)
 }
 
-class JsonLoader {
-    static var bundle: Bundle {
-        return Bundle(for: type(of: JsonLoader()))
+public class JsonLoader {
+
+    private var bundle: Bundle
+    
+    public init(anyClass: AnyClass) {
+        self.bundle = Bundle(for: anyClass)
     }
 
-    static func load<T: Decodable>(
+    public func load<T: Decodable>(
         type: T.Type,
         filename: String,
         keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys,
@@ -52,7 +55,7 @@ class JsonLoader {
         }
     }
 
-    static func loadData(filename: String) -> Data? {
+    public func loadData(filename: String) -> Data? {
         guard let path = bundle.url(forResource: filename, withExtension: nil) else {
             return nil
         }

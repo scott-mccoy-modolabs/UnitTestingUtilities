@@ -9,11 +9,11 @@
 
 import XCTest
 
-struct CountedXCTestExpectation {
-    let expectation: XCTestExpectation
-    private(set) var currentFulfillmentCount: Int = 0
+public struct CountedXCTestExpectation {
+    public let expectation: XCTestExpectation
+    public private(set) var currentFulfillmentCount: Int = 0
 
-    mutating func fulfill() {
+    public mutating func fulfill() {
         currentFulfillmentCount += 1
         expectation.fulfill()
     }

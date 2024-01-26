@@ -9,6 +9,6 @@
 
 import CoreLocation
 
-protocol Stubbable {
+public protocol Stubbable {
     static var stub: Self {get}
 }

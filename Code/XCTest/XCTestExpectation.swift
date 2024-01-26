@@ -9,7 +9,7 @@
 
 import XCTest
 
-extension XCTestExpectation {
+public extension XCTestExpectation {
     var expected: Bool {
         get {
             !self.isInverted
@@ -20,7 +20,7 @@ extension XCTestExpectation {
     }
 }
 
-extension Optional where Wrapped == XCTestExpectation {
+public extension Optional where Wrapped == XCTestExpectation {
 
     // keystroke saver for unwrapping an expectation and fulfilling it, or failing the test (instead of crashing)
     func fulfillOrFail(

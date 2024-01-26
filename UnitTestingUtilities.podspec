@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '13.0'
   s.source       = { git: "https://github.com/scott-mccoy-modolabs/UnitTestingUtilities.git", tag: s.version }
 
-  s.source_files = "Code/**/*{swift,jpeg}"
+  s.source_files = "Code/**/*.swift"
+  s.resource_bundles = { 'UnitTestingUtilitiesResources' => ["Code/**/*.jpeg"] }
   
   s.frameworks = 'XCTest'
   
